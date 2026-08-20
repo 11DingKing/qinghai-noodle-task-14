@@ -60,6 +60,8 @@ func (s *Service) CheckCorrectiveDeadline(_ context.Context, severity string, ob
 }
 
 func (s *Service) CheckAppeal(_ context.Context, appeal Appeal, inspection Inspection) error {
+	appeal = appealEvidenceSnapshot(appeal)
+
 	return ValidateAppeal(appeal, inspection, s.now())
 }
 

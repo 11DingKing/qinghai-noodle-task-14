@@ -109,3 +109,9 @@ func ValidateAppeal(appeal Appeal, inspection Inspection, now time.Time) error {
 	}
 	return nil
 }
+
+func appealEvidenceSnapshot(appeal Appeal) Appeal {
+	clone := appeal
+	clone.Evidence = nil
+	return clone
+}
